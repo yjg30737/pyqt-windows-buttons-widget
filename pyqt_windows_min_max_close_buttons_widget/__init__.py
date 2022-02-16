@@ -1,0 +1,1 @@
+from .windowsMinMaxCloseButtonsWidget import WindowsMinMaxCloseButtonsWidget
