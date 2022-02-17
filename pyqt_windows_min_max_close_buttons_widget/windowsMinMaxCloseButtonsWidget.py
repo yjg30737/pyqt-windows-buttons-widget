@@ -1,7 +1,7 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPalette, QColor
 from PyQt5.QtWidgets import qApp, QMenuBar
-from pyqt_min_max_close_buttons import MinMaxCloseButtonsWidget
+from pyqt_min_max_close_buttons_widget import MinMaxCloseButtonsWidget
 
 from python_color_getter.pythonColorGetter import PythonColorGetter
 
