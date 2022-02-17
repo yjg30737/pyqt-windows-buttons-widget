@@ -1,28 +1,23 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPalette, QColor
-from PyQt5.QtWidgets import QHBoxLayout, QWidget, QToolButton, qApp, QMenuBar
+from PyQt5.QtWidgets import qApp, QMenuBar
+from pyqt_min_max_close_buttons import MinMaxCloseButtonsWidget
 
 from python_color_getter.pythonColorGetter import PythonColorGetter
 
 
-class WindowsMinMaxCloseButtonsWidget(QWidget):
+class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
     def __init__(self, menu_bar: QMenuBar, hint=Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint):
         super().__init__()
         self.__menu_bar = menu_bar
-        self.__initVal()
         self.__initUi(hint)
 
-    def __initVal(self):
-        self.__minimizeBtn = QToolButton()
-        self.__maximizeBtn = QToolButton()
-        self.__closeBtn = QToolButton()
-
     def __initUi(self, hint):
-        self.__minimizeBtn.setText('🗕')
-        self.__maximizeBtn.setText('🗖')
-        self.__closeBtn.setText('🗙')
+        self._minimizeBtn.setText('🗕')
+        self._maximizeBtn.setText('🗖')
+        self._closeBtn.setText('🗙')
 
-        btns = [self.__minimizeBtn, self.__maximizeBtn, self.__closeBtn]
+        btns = [self._minimizeBtn, self._maximizeBtn, self._closeBtn]
 
         menubar_base_color = self.__menu_bar.palette().color(QPalette.Base)
         menubar_base_color = menubar_base_color.lighter(150)
@@ -69,33 +64,4 @@ class WindowsMinMaxCloseButtonsWidget(QWidget):
             btn.setFont(font)
             btn.setStyleSheet(tool_button_style)
 
-        self.__closeBtn.setStyleSheet(close_button_style)
-
-        lay = QHBoxLayout()
-        lay.setSpacing(0)
-        lay.setContentsMargins(0, 0, 0, 0)
-
-        if hint == Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint:
-            lay.addWidget(self.__minimizeBtn)
-            lay.addWidget(self.__maximizeBtn)
-            lay.addWidget(self.__closeBtn)
-        elif hint == Qt.WindowMinimizeButtonHint | Qt.WindowCloseButtonHint:
-            lay.addWidget(self.__minimizeBtn)
-            lay.addWidget(self.__closeBtn)
-        elif hint == Qt.WindowCloseButtonHint:
-            lay.addWidget(self.__closeBtn)
-        else:
-            # todo for another type of flags
-            pass
-
-        self.setLayout(lay)
-
-    def getMinimizedBtn(self):
-        return self.__minimizeBtn
-
-    def getMaximizedBtn(self):
-        return self.__maximizeBtn
-
-    def getCloseBtn(self):
-        return self.__closeBtn
-
+        self._closeBtn.setStyleSheet(close_button_style)
