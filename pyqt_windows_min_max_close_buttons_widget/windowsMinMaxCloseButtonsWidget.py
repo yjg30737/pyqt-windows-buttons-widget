@@ -13,6 +13,8 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
         self.__initUi(hint)
 
     def __initUi(self, hint):
+        self.layout().setSpacing(0)
+
         self._minimizeBtn.setText('🗕')
         self._maximizeBtn.setText('🗖')
         self._closeBtn.setText('🗙')
