@@ -8,7 +8,7 @@ from python_color_getter.pythonColorGetter import PythonColorGetter
 
 class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
     def __init__(self, menu_bar: QMenuBar, hint=Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint):
-        super().__init__()
+        super().__init__(hint)
         self.__menu_bar = menu_bar
         self.__initUi(hint)
 
