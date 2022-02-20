@@ -1,15 +1,15 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPalette, QColor
-from PyQt5.QtWidgets import qApp, QMenuBar
+from PyQt5.QtWidgets import qApp, QWidget
 from pyqt_min_max_close_buttons_widget import MinMaxCloseButtonsWidget
 
 from python_color_getter.pythonColorGetter import PythonColorGetter
 
 
 class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
-    def __init__(self, menu_bar: QMenuBar, hint=Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint):
+    def __init__(self, base_widget: QWidget, hint=Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint):
         super().__init__(hint)
-        self.__menu_bar = menu_bar
+        self.__baseWidget = base_widget
         self.__initUi(hint)
 
     def __initUi(self, hint):
@@ -21,7 +21,7 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
 
         btns = [self._minimizeBtn, self._maximizeBtn, self._closeBtn]
 
-        menubar_base_color = self.__menu_bar.palette().color(QPalette.Base)
+        menubar_base_color = self.__baseWidget.palette().color(QPalette.Base)
         menubar_base_conspicuous_color = menubar_base_color.lighter(150)
 
         lbl_r, lbl_g, lbl_b = PythonColorGetter.get_complementary_color(menubar_base_conspicuous_color.red(),
