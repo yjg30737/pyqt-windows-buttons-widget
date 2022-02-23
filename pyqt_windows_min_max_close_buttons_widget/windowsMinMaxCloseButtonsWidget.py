@@ -21,25 +21,25 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
 
         btns = [self._minimizeBtn, self._maximizeBtn, self._closeBtn]
 
-        menubar_base_color = self.__baseWidget.palette().color(QPalette.Base)
-        menubar_base_conspicuous_color = menubar_base_color.lighter(150)
+        base_color = self.__baseWidget.palette().color(QPalette.Base)
+        base_conspicuous_color = base_color.lighter(150)
 
-        lbl_r, lbl_g, lbl_b = PythonColorGetter.get_complementary_color(menubar_base_conspicuous_color.red(),
-                                                                        menubar_base_conspicuous_color.green(),
-                                                                        menubar_base_conspicuous_color.blue())
+        lbl_r, lbl_g, lbl_b = PythonColorGetter.get_complementary_color(base_conspicuous_color.red(),
+                                                                        base_conspicuous_color.green(),
+                                                                        base_conspicuous_color.blue())
         btn_text_color = QColor(lbl_r, lbl_g, lbl_b)
         btn_text_hover_color = btn_text_color.lighter(150)
 
         tool_button_style = f'''
                             QToolButton
                             {{ 
-                            background: {menubar_base_color.name()};
+                            background: {base_color.name()};
                             color: {btn_text_color.name()};
                             border: 0; 
                             }}
                             QToolButton:hover
                             {{ 
-                            background-color: {menubar_base_conspicuous_color.name()};
+                            background-color: {base_conspicuous_color.name()};
                             color: {btn_text_hover_color.name()};
                             }}
                             '''
@@ -47,7 +47,7 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
         close_button_style = f'''
                              QToolButton 
                              {{ 
-                             background: {menubar_base_color.name()};
+                             background: {base_color.name()};
                              color: {btn_text_color.name()}; 
                              border: 0; 
                              }}
