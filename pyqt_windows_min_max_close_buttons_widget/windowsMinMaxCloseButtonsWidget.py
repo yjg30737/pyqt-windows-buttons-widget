@@ -58,7 +58,7 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
                              }}
                              '''
 
-        font_size = font.pointSize() // 1.5
+        font_size = font.pointSize() // 1.2
 
         for btn in btns:
             font = btn.font()
