@@ -1,18 +1,18 @@
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QPalette, QColor
-from PyQt5.QtWidgets import qApp, QWidget
+from PyQt5.QtGui import QPalette, QColor, QFont
+from PyQt5.QtWidgets import QWidget
 from pyqt_min_max_close_buttons_widget import MinMaxCloseButtonsWidget
 
 from python_color_getter.pythonColorGetter import PythonColorGetter
 
 
 class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
-    def __init__(self, base_widget: QWidget, hint=Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint):
+    def __init__(self, base_widget: QWidget, hint=Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint, font=QFont('Arial', 12)):
         super().__init__(hint)
         self.__baseWidget = base_widget
-        self.__initUi(hint)
+        self.__initUi(hint, font)
 
-    def __initUi(self, hint):
+    def __initUi(self, hint, font):
         self.layout().setSpacing(0)
 
         self._minimizeBtn.setText('🗕')
@@ -58,7 +58,7 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
                              }}
                              '''
 
-        font_size = qApp.font().pointSize() * 1.2
+        font_size = font.pointSize() // 1.5
 
         for btn in btns:
             font = btn.font()
