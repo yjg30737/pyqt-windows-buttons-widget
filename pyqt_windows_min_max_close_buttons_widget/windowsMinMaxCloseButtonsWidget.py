@@ -31,13 +31,13 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
         btn_text_hover_color = btn_text_color.lighter(150)
 
         tool_button_style = f'''
-                            QToolButton
+                            QPushButton
                             {{ 
                             background: {base_color.name()};
                             color: {btn_text_color.name()};
                             border: 0; 
                             }}
-                            QToolButton:hover
+                            QPushButton:hover
                             {{ 
                             background-color: {base_conspicuous_color.name()};
                             color: {btn_text_hover_color.name()};
@@ -45,13 +45,13 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
                             '''
 
         close_button_style = f'''
-                             QToolButton 
+                             QPushButton 
                              {{ 
                              background: {base_color.name()};
                              color: {btn_text_color.name()}; 
                              border: 0; 
                              }}
-                             QToolButton:hover 
+                             QPushButton:hover 
                              {{ 
                              background-color: #EE0000; 
                              color: {btn_text_hover_color.name()};
