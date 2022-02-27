@@ -30,11 +30,18 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
         btn_text_color = QColor(lbl_r, lbl_g, lbl_b)
         btn_text_hover_color = btn_text_color.lighter(150)
 
+        h_padding_size = font.pointSize() // 2
+        v_padding_size = font.pointSize() // 4
+
         tool_button_style = f'''
                             QPushButton
                             {{ 
                             background: {base_color.name()};
                             color: {btn_text_color.name()};
+                            padding-left: {h_padding_size};
+                            padding-right: {h_padding_size};
+                            padding-top: {v_padding_size};
+                            padding-bottom: {v_padding_size};
                             border: 0; 
                             }}
                             QPushButton:hover
@@ -48,7 +55,11 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
                              QPushButton 
                              {{ 
                              background: {base_color.name()};
-                             color: {btn_text_color.name()}; 
+                             color: {btn_text_color.name()};
+                             padding-left: {h_padding_size};
+                             padding-right: {h_padding_size};
+                             padding-top: {v_padding_size};
+                             padding-bottom: {v_padding_size};
                              border: 0; 
                              }}
                              QPushButton:hover 
