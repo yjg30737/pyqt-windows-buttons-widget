@@ -31,7 +31,7 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
         btn_text_hover_color = btn_text_color.lighter(150)
 
         h_padding_size = font.pointSize() // 2
-        v_padding_size = font.pointSize() // 4
+        v_padding_size = font.pointSize() // 5
 
         tool_button_style = f'''
                             QPushButton
