@@ -22,13 +22,16 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
         btns = [self._minimizeBtn, self._maximizeBtn, self._closeBtn]
 
         base_color = self.__baseWidget.palette().color(QPalette.Base)
-        base_conspicuous_color = base_color.lighter(150)
+        hover_factor = 120
+        if base_color.name() == '#ffffff':
+            base_conspicuous_color = base_color.darker(hover_factor)
+        else:
+            base_conspicuous_color = base_color.lighter(hover_factor)
 
         lbl_r, lbl_g, lbl_b = PythonColorGetter.get_complementary_color(base_conspicuous_color.red(),
                                                                         base_conspicuous_color.green(),
                                                                         base_conspicuous_color.blue())
         btn_text_color = QColor(lbl_r, lbl_g, lbl_b)
-        btn_text_hover_color = btn_text_color.lighter(150)
 
         h_padding_size = font.pointSize() // 2
         v_padding_size = font.pointSize() // 5
@@ -47,7 +50,6 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
                             QPushButton:hover
                             {{ 
                             background-color: {base_conspicuous_color.name()};
-                            color: {btn_text_hover_color.name()};
                             }}
                             '''
 
@@ -65,7 +67,7 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
                              QPushButton:hover 
                              {{ 
                              background-color: #EE0000; 
-                             color: {btn_text_hover_color.name()};
+                             color: #ffffff;
                              }}
                              '''
 
