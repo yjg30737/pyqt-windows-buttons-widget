@@ -13,6 +13,7 @@ setup(
     install_requires=[
         'PyQt5>=5.8',
         'python-color-getter @ git+https://git@github.com/yjg30737/python-color-getter.git@main',
-        'pyqt-min-max-close-buttons-widget @ git+https://git@github.com/yjg30737/pyqt-min-max-close-buttons-widget.git@main'
+        'pyqt-min-max-close-buttons-widget @ git+https://git@github.com/yjg30737/pyqt-min-max-close-buttons-widget.git@main',
+        'pyqt-resource-helper @ git+https://git@github.com/yjg30737/pyqt-resource-helper.git@main'
     ]
 )
