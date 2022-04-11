@@ -1,5 +1,5 @@
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QPalette, QColor, QFont
+from PyQt5.QtGui import QPalette, QColor, QFont, qGray
 from PyQt5.QtWidgets import QWidget
 from pyqt_min_max_close_buttons_widget import MinMaxCloseButtonsWidget
 
@@ -39,7 +39,12 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
         lbl_r, lbl_g, lbl_b = PythonColorGetter.get_complementary_color(hover_color.red(),
                                                                         hover_color.green(),
                                                                         hover_color.blue())
-        btn_text_color = QColor(lbl_r, lbl_g, lbl_b)
+
+        lbl_gray = qGray(lbl_r, lbl_g, lbl_b)
+        if lbl_gray > 255 // 2:
+            btn_text_color = QColor(255, 255, 255)
+        else:
+            btn_text_color = QColor(0, 0, 0)
 
         h_padding_size = self.__font.pointSize() // 2
         v_padding_size = self.__font.pointSize() // 5
