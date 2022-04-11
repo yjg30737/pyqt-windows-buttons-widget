@@ -7,6 +7,7 @@ setup(
     author_email='yjg30737@gmail.com',
     license='MIT',
     packages=find_packages(),
+    package_data={'pyqt_windows_min_max_close_buttons_widget.style': ['styles.css']},
     description='PyQt Windows min/max/close buttons widget',
     url='https://github.com/yjg30737/pyqt-windows-min-max-close-buttons-widget.git',
     install_requires=[
