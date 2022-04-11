@@ -40,11 +40,14 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
                                                                         hover_color.green(),
                                                                         hover_color.blue())
 
-        lbl_gray = qGray(lbl_r, lbl_g, lbl_b)
-        if lbl_gray > 255 // 2:
-            btn_text_color = QColor(255, 255, 255)
+        if lbl_r == lbl_g == lbl_b:
+            btn_text_color = QColor(lbl_r, lbl_g, lbl_b)
         else:
-            btn_text_color = QColor(0, 0, 0)
+            lbl_gray = qGray(lbl_r, lbl_g, lbl_b)
+            if lbl_gray > 255 // 2:
+                btn_text_color = QColor(255, 255, 255)
+            else:
+                btn_text_color = QColor(0, 0, 0)
 
         h_padding_size = self.__font.pointSize() // 2
         v_padding_size = self.__font.pointSize() // 5
