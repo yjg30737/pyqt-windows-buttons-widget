@@ -66,17 +66,7 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
                             }}
                             '''
 
-        close_button_style = f'''
-                             QPushButton 
-                             {{ 
-                             background: {base_color.name()};
-                             color: {btn_text_color.name()};
-                             padding-left: {h_padding_size};
-                             padding-right: {h_padding_size};
-                             padding-top: {v_padding_size};
-                             padding-bottom: {v_padding_size};
-                             border: 0; 
-                             }}
+        close_button_style = tool_button_style + f'''
                              QPushButton:hover 
                              {{ 
                              background-color: #EE0000; 
