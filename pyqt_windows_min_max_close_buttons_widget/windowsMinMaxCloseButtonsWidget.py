@@ -30,7 +30,7 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
         btns = [self._minimizeBtn, self._maximizeBtn, self._closeBtn]
 
         base_color = self.__baseWidget.palette().color(QPalette.Base)
-        hover_factor = 120
+        hover_factor = 130
         if base_color.name() == '#ffffff':
             hover_color = base_color.darker(hover_factor)
         else:
