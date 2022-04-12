@@ -7,7 +7,8 @@ from python_color_getter.pythonColorGetter import PythonColorGetter
 
 
 class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
-    def __init__(self, base_widget: QWidget, hint=Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint, font=QFont('Arial', 12)):
+    def __init__(self, base_widget: QWidget, hint=Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint,
+                 font=QFont('Arial', 12)):
         super().__init__(hint)
         self.__initVal(base_widget, hint, font)
         self.__initUi()
@@ -25,16 +26,25 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
         self._closeBtn.setText('🗙')
 
         self.__styleInit()
-        
-    def __getHoverColor(self, base_color):
-        hover_factor = 130
+
+    def __getColorByFactor(self, base_color, factor):
         r, g, b = base_color.red(), base_color.green(), base_color.blue()
         gray = qGray(r, g, b)
         if gray > 255 // 2:
-            hover_color = base_color.darker(hover_factor)
+            color = base_color.darker(factor)
         else:
-            hover_color = base_color.lighter(hover_factor)
+            color = base_color.lighter(factor)
+        return color
+
+    def __getHoverColor(self, base_color):
+        hover_factor = 130
+        hover_color = self.__getColorByFactor(base_color, hover_factor)
         return hover_color
+
+    def __getPressedColor(self, base_color):
+        pressed_factor = 140
+        pressed_color = self.__getColorByFactor(base_color, pressed_factor)
+        return pressed_color
 
     def __getButtonTextColor(self, r, g, b):
         if r == g == b:
@@ -52,6 +62,7 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
 
         base_color = self.__baseWidget.palette().color(QPalette.Base)
         hover_color = self.__getHoverColor(base_color)
+        pressed_color = self.__getPressedColor(base_color)
 
         r, g, b = PythonColorGetter.get_complementary_color(hover_color.red(),
                                                             hover_color.green(),
@@ -76,6 +87,10 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
                             QPushButton:hover
                             {{ 
                             background-color: {hover_color.name()};
+                            }}
+                            QPushButton:pressed
+                            {{
+                            background-color: {pressed_color.name()};
                             }}
                             '''
 
