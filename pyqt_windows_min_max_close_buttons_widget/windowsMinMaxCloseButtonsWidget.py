@@ -25,33 +25,37 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
         self._closeBtn.setText('🗙')
 
         self.__styleInit()
-
-    def __getGrayScaleColor(self, r, g, b):
-        if r == g == b:
-            color = QColor(r, g, b)
-        else:
-            gray = qGray(r, g, b)
-            if gray > 255 // 2:
-                color = QColor(255, 255, 255)
-            else:
-                color = QColor(0, 0, 0)
-        return color
-
-    def __styleInit(self):
-        btns = [self._minimizeBtn, self._maximizeBtn, self._closeBtn]
-
-        base_color = self.__baseWidget.palette().color(QPalette.Base)
+        
+    def __getHoverColor(self, base_color):
         hover_factor = 130
         if base_color.name() == '#ffffff':
             hover_color = base_color.darker(hover_factor)
         else:
             hover_color = base_color.lighter(hover_factor)
+        return hover_color
+
+    def __getButtonTextColor(self, r, g, b):
+        if r == g == b:
+            btn_text_color = QColor(r, g, b)
+        else:
+            gray = qGray(r, g, b)
+            if gray > 255 // 2:
+                btn_text_color = QColor(255, 255, 255)
+            else:
+                btn_text_color = QColor(0, 0, 0)
+        return btn_text_color
+
+    def __styleInit(self):
+        btns = [self._minimizeBtn, self._maximizeBtn, self._closeBtn]
+
+        base_color = self.__baseWidget.palette().color(QPalette.Base)
+        hover_color = self.__getHoverColor(base_color)
 
         r, g, b = PythonColorGetter.get_complementary_color(hover_color.red(),
-                                                                        hover_color.green(),
-                                                                        hover_color.blue())
+                                                            hover_color.green(),
+                                                            hover_color.blue())
 
-        btn_text_color = self.__getGrayScaleColor(r, g, b)
+        btn_text_color = self.__getButtonTextColor(r, g, b)
 
         h_padding_size = self.__font.pointSize() // 2
         v_padding_size = self.__font.pointSize() // 5
