@@ -26,6 +26,17 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
 
         self.__styleInit()
 
+    def __getGrayScaleColor(self, r, g, b):
+        if r == g == b:
+            color = QColor(r, g, b)
+        else:
+            gray = qGray(r, g, b)
+            if gray > 255 // 2:
+                color = QColor(255, 255, 255)
+            else:
+                color = QColor(0, 0, 0)
+        return color
+
     def __styleInit(self):
         btns = [self._minimizeBtn, self._maximizeBtn, self._closeBtn]
 
@@ -36,18 +47,11 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
         else:
             hover_color = base_color.lighter(hover_factor)
 
-        lbl_r, lbl_g, lbl_b = PythonColorGetter.get_complementary_color(hover_color.red(),
+        r, g, b = PythonColorGetter.get_complementary_color(hover_color.red(),
                                                                         hover_color.green(),
                                                                         hover_color.blue())
 
-        if lbl_r == lbl_g == lbl_b:
-            btn_text_color = QColor(lbl_r, lbl_g, lbl_b)
-        else:
-            lbl_gray = qGray(lbl_r, lbl_g, lbl_b)
-            if lbl_gray > 255 // 2:
-                btn_text_color = QColor(255, 255, 255)
-            else:
-                btn_text_color = QColor(0, 0, 0)
+        btn_text_color = self.__getGrayScaleColor(r, g, b)
 
         h_padding_size = self.__font.pointSize() // 2
         v_padding_size = self.__font.pointSize() // 5
