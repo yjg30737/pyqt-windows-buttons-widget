@@ -28,7 +28,9 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
         
     def __getHoverColor(self, base_color):
         hover_factor = 130
-        if base_color.name() == '#ffffff':
+        r, g, b = base_color.red(), base_color.green(), base_color.blue()
+        gray = qGray(r, g, b)
+        if gray > 255 // 2:
             hover_color = base_color.darker(hover_factor)
         else:
             hover_color = base_color.lighter(hover_factor)
