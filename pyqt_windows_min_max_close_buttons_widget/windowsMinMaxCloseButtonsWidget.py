@@ -1,4 +1,3 @@
-from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPalette, QColor, QFont, qGray
 from PyQt5.QtWidgets import QWidget
 from pyqt_min_max_close_buttons_widget import MinMaxCloseButtonsWidget
