@@ -72,7 +72,7 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
         h_padding_size = self.__font.pointSize() // 2
         v_padding_size = self.__font.pointSize() // 5
 
-        tool_button_style = f'''
+        button_style = f'''
                             QPushButton
                             {{ 
                             background: {base_color.name()};
@@ -93,7 +93,7 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
                             }}
                             '''
 
-        close_button_style = tool_button_style + f'''
+        close_button_style = button_style + f'''
                              QPushButton:hover 
                              {{ 
                              background-color: #EE0000; 
@@ -107,7 +107,7 @@ class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
             font = btn.font()
             font.setPointSize(font_size)
             btn.setFont(font)
-            btn.setStyleSheet(tool_button_style)
+            btn.setStyleSheet(button_style)
 
         self._closeBtn.setStyleSheet(close_button_style)
 
