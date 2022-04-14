@@ -7,7 +7,7 @@ from python_color_getter.pythonColorGetter import PythonColorGetter
 
 
 class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
-    def __init__(self, base_widget: QWidget, hint=Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint,
+    def __init__(self, base_widget: QWidget, hint=['min', 'max', 'close'],
                  font=QFont('Arial', 12)):
         super().__init__(hint)
         self.__initVal(base_widget, hint, font)
