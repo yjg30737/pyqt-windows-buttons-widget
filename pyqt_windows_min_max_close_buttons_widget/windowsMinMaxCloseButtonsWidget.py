@@ -1,11 +1,11 @@
 from PyQt5.QtGui import QPalette, QColor, QFont, qGray
 from PyQt5.QtWidgets import QWidget
-from pyqt_min_max_close_buttons_widget import MinMaxCloseButtonsWidget
+from pyqt_titlebar_buttons_widget import TitlebarButtonsWidget
 
 from python_color_getter.pythonColorGetter import PythonColorGetter
 
 
-class WindowsMinMaxCloseButtonsWidget(MinMaxCloseButtonsWidget):
+class WindowsMinMaxCloseButtonsWidget(TitlebarButtonsWidget):
     def __init__(self, base_widget: QWidget, hint: list = ['min', 'max', 'close'],
                  font=QFont('Arial', 12)):
         super().__init__(hint)
