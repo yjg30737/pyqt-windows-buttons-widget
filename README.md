@@ -8,7 +8,7 @@ PyQt Windows min/max/close buttons widget
 ```pip3 install git+https://github.com/yjg30737/pyqt-windows-min-max-close-buttons-widget.git --upgrade```
 
 ## Imported Package
-* <a href="https://github.com/yjg30737/pyqt-min-max-close-buttons-widget.git">pyqt-min-max-close-buttons-widget</a> - Parent widget
+* <a href="https://github.com/yjg30737/pyqt-titlebar-buttons-widget.git">pyqt-titlebar-buttons-widget</a> - Parent widget
 
 ## Usage
 * ```WindowsMinMaxCloseButtonsWidget(base_widget: QWidget, hint=['min', 'max', 'close'], font=QFont('Arial', 12))``` - Constructor. The argument ```base_widget``` is used for matching the color of buttons with ```QWidget```(including ```QMenuBar```)'s base color. ```font``` argument is the font of each button's text.
