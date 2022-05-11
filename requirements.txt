@@ -1,2 +1,2 @@
-git+https://git@github.com/yjg30737/python-color-getter.git@main
-git+https://git@github.com/yjg30737/pyqt-min-max-close-buttons-widget.git@main
+python-color-getter>=0.0.1
+git+https://git@github.com/yjg30737/pyqt-titlebar-buttons-widget.git@main
