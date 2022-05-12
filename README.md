@@ -5,7 +5,7 @@ PyQt Windows titlebar buttons (e.g. min/max/close button) widget
 * PyQt5 >= 5.8
 
 ## Setup
-```pip3 install git+https://github.com/yjg30737/pyqt-windows-buttons-widget.git --upgrade```
+`python -m pip install pyqt-windows-buttons-widget`
 
 ## Imported Package
 * <a href="https://github.com/yjg30737/pyqt-titlebar-buttons-widget.git">pyqt-titlebar-buttons-widget</a> - Parent widget
