@@ -5,7 +5,7 @@ from pyqt_titlebar_buttons_widget import TitlebarButtonsWidget
 from python_color_getter.pythonColorGetter import PythonColorGetter
 
 
-class WindowsMinMaxCloseButtonsWidget(TitlebarButtonsWidget):
+class WindowsButtonsWidget(TitlebarButtonsWidget):
     def __init__(self, base_widget: QWidget, hint: list = ['min', 'max', 'close'],
                  font=QFont('Arial', 12)):
         super().__init__(hint)
