@@ -16,6 +16,8 @@ setup(
     packages=find_packages(),
     description='PyQt Windows titlebar buttons (e.g. min/max/close button) widget',
     url='https://github.com/yjg30737/pyqt-windows-buttons-widget.git',
+    long_description_content_type='text/markdown',
+    long_description=long_description,
     install_requires=[
         'PyQt5>=5.8',
         'python-color-getter>=0.0.1',
