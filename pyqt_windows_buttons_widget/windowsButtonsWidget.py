@@ -1,3 +1,4 @@
+from PyQt5.QtGui import QPalette
 from PyQt5.QtWidgets import QWidget
 from pyqt_titlebar_buttons_widget import TitlebarButtonsWidget
 
@@ -11,6 +12,11 @@ class WindowsButtonsWidget(TitlebarButtonsWidget):
         self._minimizeBtn.setText('🗕')
         self._maximizeBtn.setText('🗖')
         self._closeBtn.setText('🗙')
+
+        # fill the button's background with color
+        background_color = self._base_widget.palette().color(QPalette.Base).name()
+        for btn in self._btn_dict.values():
+            btn.setBackground(background_color)
 
         self.__styleInit()
 
