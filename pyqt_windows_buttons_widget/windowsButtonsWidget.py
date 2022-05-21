@@ -27,6 +27,10 @@ class WindowsButtonsWidget(TitlebarButtonsWidget):
                              background-color: #EE0000; 
                              color: #ffffff;
                              }}
+                             QPushButton:pressed
+                             {{
+                             background-color: #CC0000;
+                             }}
                              '''
 
         self._closeBtn.setStyleSheet(close_button_style)
