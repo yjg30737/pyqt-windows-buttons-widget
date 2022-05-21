@@ -20,6 +20,9 @@ class WindowsButtonsWidget(TitlebarButtonsWidget):
 
         self.__styleInit()
 
+        self.__window = self._base_widget.window()
+        self.__window.installEventFilter(self)
+
     def __styleInit(self):
         close_button_style = self._closeBtn.styleSheet() + f'''
                              QPushButton:hover 
@@ -39,3 +42,11 @@ class WindowsButtonsWidget(TitlebarButtonsWidget):
         if e.type() == 100:
             self.__styleInit()
         return super().event(e)
+
+    def eventFilter(self, obj, e):
+        if e.type() == 105:
+            if self.__window.isMaximized():
+                self._maximizeBtn.setText('🗗')
+            else:
+                self._maximizeBtn.setText('🗖')
+        return super().eventFilter(obj, e)
