@@ -13,19 +13,13 @@ class WindowsButtonsWidget(TitlebarButtonsWidget):
         self._maximizeBtn.setText('🗖')
         self._closeBtn.setText('🗙')
 
-        self.__styleInit()
-
         self.__window = self._base_widget.window()
         self.__window.installEventFilter(self)
 
-    def __styleInit(self):
-        # fill the button's background with color
-        background_color = self._base_widget.palette().color(QPalette.Base).name()
-        for btn in self._btn_dict.values():
-            btn.setBackground(background_color)
-
+    def _styleInit(self):
+        super()._styleInit()
         close_button_style = self._closeBtn.styleSheet() + f'''
-                             QPushButton:hover 
+                             QPushButton:hover
                              {{ 
                              background-color: #EE0000; 
                              color: #ffffff;
@@ -37,11 +31,6 @@ class WindowsButtonsWidget(TitlebarButtonsWidget):
                              '''
 
         self._closeBtn.setStyleSheet(close_button_style)
-
-    def event(self, e):
-        if e.type() == 100:
-            self.__styleInit()
-        return super().event(e)
 
     def eventFilter(self, obj, e):
         if e.type() == 105:
