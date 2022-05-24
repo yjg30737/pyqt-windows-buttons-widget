@@ -1,4 +1,3 @@
-from PyQt5.QtGui import QPalette
 from PyQt5.QtWidgets import QWidget
 from pyqt_titlebar_buttons_widget import TitlebarButtonsWidget
 

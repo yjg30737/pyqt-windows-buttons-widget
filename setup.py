@@ -20,7 +20,6 @@ setup(
     long_description=long_description,
     install_requires=[
         'PyQt5>=5.8',
-        'python-color-getter>=0.0.1',
         'pyqt-titlebar-buttons-widget>=0.0.1'
     ]
 )
