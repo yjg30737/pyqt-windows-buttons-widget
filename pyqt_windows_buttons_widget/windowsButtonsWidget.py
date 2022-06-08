@@ -17,18 +17,23 @@ class WindowsButtonsWidget(TitlebarButtonsWidget):
 
     def _styleInit(self):
         super()._styleInit()
-        close_button_style = self._closeBtn.styleSheet() + f'''
+        minimize_button_style = self._minimizeBtn.styleSheet() + 'QPushButton { border-radius: 0 }'
+        maximize_button_style = self._maximizeBtn.styleSheet() + 'QPushButton { border-radius: 0 }'
+        close_button_style = self._closeBtn.styleSheet() + 'QPushButton { border-radius: 0 }' + \
+                             '''
                              QPushButton:hover
-                             {{ 
+                             {
                              background-color: #EE0000; 
                              color: #ffffff;
-                             }}
+                             }
                              QPushButton:pressed
-                             {{
+                             {
                              background-color: #CC0000;
-                             }}
+                             }
                              '''
 
+        self._minimizeBtn.setStyleSheet(minimize_button_style)
+        self._maximizeBtn.setStyleSheet(maximize_button_style)
         self._closeBtn.setStyleSheet(close_button_style)
 
     def eventFilter(self, obj, e):
